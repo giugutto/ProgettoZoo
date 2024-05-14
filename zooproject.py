@@ -58,12 +58,12 @@ class Zookeeper:
     # def calcola_area(animal_1.lenght,width):
     #     return lenght * width
 
-    def add_animal(animal: Animal, fence: Fence):
+    def add_animal(self, animal: Animal, fence: Fence):
         if animal.preferred_habitat == fence.habitat and animal.height * animal.width / 2 < fence.area:
                 fence.animals.append(animal)
         return animal
     
-    def remove_animal(animal: Animal, fence: Fence):
+    def remove_animal(self, animal: Animal, fence: Fence):
         fence.remove(animal)
         fence.area = fence.area - (animal.height * animal.width)
         return fence
@@ -71,7 +71,7 @@ class Zookeeper:
     # L'animale deve essere allontanato dal suo recinto. 
     # Nota bene: L'area del recinto deve essere ripristinata dello spazio che l'animale rimosso occupava.
             
-    def feed(animal: Animal, fence: Fence):
+    def feed(self, animal: Animal, fence: Fence):
         if animal.height * animal.width < fence.area:
             animal.health = animal.health + animal.health * 1 / 100
             animal.height = animal.height + animal.height * 2 /  100
@@ -84,24 +84,40 @@ class Zookeeper:
     # Perciò, l'animale si può nutrire soltanto se il recinto ha ancora spazio
     # a sufficienza per ospitare l'animale ingrandito dal cibo.
 
-    def clean(fence, animal:Animal):
-        for i in area occupata dagli animali
-        x += i.weidth * i.height /2
-         if area == 0
-         rapport = 0
-         elserapporto = area
-         return rapporto
-    # . clean(fence: Fence) (Pulizia dei recinti): 
-    # implementare un metodo che consenta al guardiano dello zoo di pulire tutti i recinti dello zoo. 
-    # Questo metodo restituisce un valore di tipo float che indica il tempo che il guardiano impiega per pulire il recinto.
-    # Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto. 
-    # Se l'area residua è pari a 0, restituire l'area occupata.
-                
-                
+    def clean(self, fence: Fence):
+        areaanimale = 0
+        for i in fence.animals():
+            areaanimale += i.weidth * i.height /2
+        arearimasta = fence.area - areaanimale
+        if arearimasta == 0:
+            return areaanimale
+        else:
+            return areaanimale / arearimasta
+    
+    def describe_zoo(self, zookeeper: Zookeeper, fence):
+        print("Guardians:" /n Zookeper(zookeeper.name)
+# Fences:
+# Fence(area=100, temperature=25, habitat=Continent)
+# with animals:
+# Animal(name=Scoiattolo, species=Blabla, age=25)
+# Animal(name=Lupo, species=Lupus, age=14)
+
+
+
+        )       
 
 fence_1 = Fence(122, 26, "tropicale", )
-# 1. add_animal(animal: Animal, fence: Fence) (Aggiungi nuovo animale): consente al guardiano dello zoo di 
-#aggiungere un nuovo animale allo zoo. L'animale deve essere collocato in un recinto adeguato in base alle esigenze del suo habitat 
-#e se c'è ancora spazio nel recinto,
-# ovvero se l'area del recinto è ancora sufficiente per ospitare questo animale.
 
+    
+
+# 5. describe_zoo() (Visualizza informazioni sullo zoo): visualizza informazioni su tutti i guardani dello zoo, sui recinti dello zoo che contengono animali. 
+# E.s.: Se abbiamo un guardiano chiamato Lorenzo Maggi con matricola 1234, e un recinto Fence(area=100, temperature=25, habitat=Continentale) con due animali Animal(name=Scoiattolo, species=Blabla, age=25, ...), Animal(name=Lupo, species=Lupus, age=14,...) ci si aspetta di avere una rappresentazione testuale dello zoo come segue:
+# Guardians:
+# ZooKeeper(name=Lorenzo, surname=Maggi, id=1234)
+# Fences:
+# Fence(area=100, temperature=25, habitat=Continent)
+# with animals:
+# Animal(name=Scoiattolo, species=Blabla, age=25)
+# Animal(name=Lupo, species=Lupus, age=14)
+# #########################
+# Fra un recinto e l'altro mettete 30 volte il carattere #.
