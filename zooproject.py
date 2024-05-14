@@ -59,7 +59,7 @@ class Zookeeper:
     #     return lenght * width
 
     def add_animal(animal: Animal, fence: Fence):
-        if animal.preferred_habitat == fence.habitat and animal.height * animal.width < fence.area:
+        if animal.preferred_habitat == fence.habitat and animal.height * animal.width / 2 < fence.area:
                 fence.animals.append(animal)
         return animal
     
@@ -85,9 +85,12 @@ class Zookeeper:
     # a sufficienza per ospitare l'animale ingrandito dal cibo.
 
     def clean(fence, animal:Animal):
-        x = []
-        for i in an
-
+        for i in area occupata dagli animali
+        x += i.weidth * i.height /2
+         if area == 0
+         rapport = 0
+         elserapporto = area
+         return rapporto
     # . clean(fence: Fence) (Pulizia dei recinti): 
     # implementare un metodo che consenta al guardiano dello zoo di pulire tutti i recinti dello zoo. 
     # Questo metodo restituisce un valore di tipo float che indica il tempo che il guardiano impiega per pulire il recinto.
