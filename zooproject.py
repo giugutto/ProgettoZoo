@@ -27,10 +27,14 @@ class Zoo:
         self.fences = fences
         self.zoo_keeper = zoo_keeper
 
+    def describe_zoo(self):
+        print(self.zoo_keeper, self.fences)
+
+
 
 
 class Animal:
-    def __init__(self,name, species, age, height, width, preferred_habitat):
+    def __init__(self,name, species, age, height, width, preferred_habitat, fence =None):
         #health che è uguale a round(100 * (1 / age), 3).
         self.name = name
         self.species = species
@@ -39,7 +43,9 @@ class Animal:
         self.width = width
         self.preferred_habitat = preferred_habitat
         self.health = round(100 * (1/age), 3)
+        self.fence = fence
 
+animal1 = Animal("Gino","maiale",12,11,11,"Tropicale")
 
 class Fence:
     def __init__(self, area, temperature, habitat, animals: list = None):
@@ -48,6 +54,8 @@ class Fence:
         self.temperature = temperature
         self.habitat = habitat
     
+
+fence_1 = Fence(122, 26, "tropicale", [animal1])
 
 class Zookeeper:
     def __init__(self, name, surname,id):
@@ -71,8 +79,8 @@ class Zookeeper:
     # L'animale deve essere allontanato dal suo recinto. 
     # Nota bene: L'area del recinto deve essere ripristinata dello spazio che l'animale rimosso occupava.
             
-    def feed(self, animal: Animal, fence: Fence):
-        if animal.height * animal.width < fence.area:
+    def feed(self, animal: Animal,): #mettere fence dagli attributi animals
+        if animal.height * animal.width < animal.fence.area:
             animal.health = animal.health + animal.health * 1 / 100
             animal.height = animal.height + animal.height * 2 /  100
             animal.width = animal.width + animal.width * 2 /  100
@@ -94,8 +102,8 @@ class Zookeeper:
         else:
             return areaanimale / arearimasta
     
-    def describe_zoo(self, zookeeper: Zookeeper, fence):
-        print("Guardians:" /n Zookeper(zookeeper.name)
+    
+zookeeper1 = Zookeeper("gino","pino", 12)  
 # Fences:
 # Fence(area=100, temperature=25, habitat=Continent)
 # with animals:
@@ -104,9 +112,8 @@ class Zookeeper:
 
 
 
-        )       
+          
 
-fence_1 = Fence(122, 26, "tropicale", )
 
     
 
